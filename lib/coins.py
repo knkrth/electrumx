@@ -1660,6 +1660,27 @@ class Axe(Dash):
         import x11_hash
         return x11_hash.getPoWHash(header)
 
+class Geyser(ScryptMixin, Coin):
+    NAME = "Geysercoin"
+    SHORTNAME = "GSR"
+    NET = "mainnet"
+    XPUB_VERBYTES = bytes.fromhex("0488b21e")
+    XPRV_VERBYTES = bytes.fromhex("0488ade4")
+    P2PKH_VERBYTE = bytes.fromhex("26")
+    P2SH_VERBYTES = [bytes.fromhex("3f")]
+    WIF_BYTE = bytes.fromhex("ab")
+    GENESIS_HASH = ('00000f8c28f5ed6b3097af0be5d00f8c'
+                    'c240e5715322ee332d05722b539c3019')
+    ESTIMATE_FEE = 0.0001
+    RELAY_FEE = 0.0001
+    DESERIALIZER = lib_tx.DeserializerTxTime
+    DAEMON = daemon.LegacyRPCDaemon
+    TX_COUNT = 1000
+    TX_COUNT_HEIGHT = 10000
+    TX_PER_BLOCK = 1
+    RPC_PORT = 10555
+    REORG_LIMIT = 600
+    
 class Xuez(Coin):
     NAME = "Xuez"
     SHORTNAME = "XUEZ"
